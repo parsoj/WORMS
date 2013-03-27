@@ -4,6 +4,7 @@ WORMS
 
 TODO 
 ****
+
 * local machine
 	* check for previous infection
 		* if infected already
@@ -24,7 +25,7 @@ TODO
 
 
 * CC structure(ignore everything in "")
-	
+```	
 	[attack targets]
 	"ip addresses: one address per line"
 	
@@ -35,4 +36,4 @@ TODO
 	"bash commands* one per line"
 
 
-
+```
