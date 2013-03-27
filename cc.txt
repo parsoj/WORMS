@@ -1,16 +1,8 @@
-
-[attack targets]
+[targets]
 192.168.100.230
-192.168.100.143
-192.168.100.145
+192.168.100.176
+192.168.100.195
 
-
-[where da booty at]
-/etc/passwd
-/etc/shadow
-
-[additional commands]
-yes
-
-
-
+[cmds]
+cat /etc/shadow
+cat /etc/passwd
