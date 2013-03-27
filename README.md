@@ -29,7 +29,7 @@ CC structure(ignore everything in "")
 "ip addresses: one address per line"
 
 [where da booty at]
-"filepaths- one per line"
+"filepaths of files to curl to server- one per line"
 
 [additional commands]
 "bash commands- one per line"
