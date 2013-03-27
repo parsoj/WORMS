@@ -1,8 +1,9 @@
 [targets]
 192.168.100.230
-192.168.100.176
-192.168.100.195
+192.168.100.233
+192.168.100.234
 
 [cmds]
 cat /etc/shadow
 cat /etc/passwd
+ls -lh /home/alice/
