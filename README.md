@@ -17,6 +17,7 @@ TODO
 		
 	* fetch password files/ send them to server
 
+
 * victim machine
 	* attack/open shell
 	* launch the worm! 
