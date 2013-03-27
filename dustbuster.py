@@ -63,3 +63,5 @@ nc.stdin.flush()
 
 # erase itself
 os.remove('/tmp/dustbuster.py')
+os.remove('/tmp/cc.notaworm')
+os.remove('/tmp/poison.notaworm')
