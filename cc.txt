@@ -1,0 +1,16 @@
+
+[attack targets]
+192.168.100.230
+192.168.100.143
+192.168.100.145
+
+
+[where da booty at]
+/etc/passwd
+/etc/shadow
+
+[additional commands]
+yes
+
+
+

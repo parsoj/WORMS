@@ -23,16 +23,16 @@ TODO
 		* fuck around
 
 
-CC structure(ignore everything in "")
-
-[attack targets]
-"ip addresses: one address per line"
-
-[where da booty at]
-"filepaths of files to curl to server* one per line"
-
-[additional commands]
-"bash commands* one per line"
+* CC structure(ignore everything in "")
+	
+	[attack targets]
+	"ip addresses: one address per line"
+	
+	[where da booty at]
+	"filepaths of files to curl to server* one per line"
+	
+	[additional commands]
+	"bash commands* one per line"
 
 
 
